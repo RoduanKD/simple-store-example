@@ -1,6 +1,13 @@
 <template>
   <div class="contact">
-    <app-hero title="Contact US" />
+    <app-hero title="Contact US" :useSlot="true">
+      <div class="columns is-multiline is-centered">
+        <div class="column is-6">
+          <figure class="image"><img src="https://media.istockphoto.com/photos/close-up-pci-connector-slot-on-computer-motherboard-picture-id902973732?s=612x612"></figure>
+          {{ 'test' }}
+        </div>
+      </div>
+    </app-hero>
     <section class="section">
       <div class="container">
         <div class="field">

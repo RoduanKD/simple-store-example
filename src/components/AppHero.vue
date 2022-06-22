@@ -1,8 +1,9 @@
 <template>
   <section class="hero is-primary is-medium">
       <div class="hero-body">
-        <div class="title">{{ title }}</div>
-        <div class="subtitle">{{ description }}</div>
+        <slot v-if="useSlot"></slot>
+        <div class="title" v-if="!useSlot">{{ title }}</div>
+        <div class="subtitle" v-if="!useSlot">{{ description }}</div>
       </div>
     </section>
 </template>
@@ -14,7 +15,8 @@ export default {
       type: String,
       default: 'Online Store'
     },
-    description: {}
+    description: {},
+    useSlot: Boolean
   }
 }
 </script>
