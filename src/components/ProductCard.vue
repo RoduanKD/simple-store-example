@@ -10,6 +10,7 @@
         <div class="media-content">
           <p class="title is-4">{{ setLength(item.title, 50) }}</p>
           <p class="subtitle is-6">{{ item.price }}$</p>
+          <button class="button is-small is-primary" v-on:click="$emit('increase', 2)">Plus +</button>
         </div>
       </div>
 

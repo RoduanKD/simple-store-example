@@ -7,7 +7,7 @@
             v-bind:key="product.id"
             class="column is-12 is-4-desktop is-3-fullhd"
           >
-            <product-card :item="product" />
+            <product-card :item="product" v-on:increase="handelIncrease(product, $event)" />
           </div>
         </div>
     </div>
@@ -33,6 +33,12 @@ export default {
     axios.get('https://fakestoreapi.com/products/').then(res => {
       this.products = res.data
     })
+  },
+
+  methods: {
+    handelIncrease (product, amount) {
+      product.price += amount
+    }
   }
 }
 </script>
