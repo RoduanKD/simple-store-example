@@ -1,6 +1,6 @@
 <template>
   <div class="contact">
-    <app-hero></app-hero>
+    <app-hero title="Contact US" />
     <section class="section">
       <div class="container">
         <div class="field">

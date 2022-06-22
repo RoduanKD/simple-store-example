@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <app-hero title="Fathi" />
+    <app-hero title="Fathi" description="This is a test" />
     <products-section />
   </div>
 </template>
