@@ -1,6 +1,15 @@
 <template>
   <section class="section">
     <div class="container">
+      <div class="columns column">
+        <form class="form">
+          <!-- title input -->
+          <!-- price input (type number) > 0 -->
+          <!-- description textarea -->
+          <!-- image input (accepts URL) -->
+          <!-- submit button with Add text -->
+        </form>
+      </div>
       <div class="columns is-multiline">
         <!-- fathi here should be product -->
           <div
@@ -33,7 +42,7 @@ export default {
   },
 
   created () {
-    axios.get('https://fakestoreapi.com/products?limit=5').then(res => {
+    axios.get('https://fakestoreapi.com/products').then(res => {
       this.products = res.data
     })
   },
