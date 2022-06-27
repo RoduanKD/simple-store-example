@@ -24,6 +24,7 @@ const routes = [
     path: '/products/:id',
     name: 'product',
     component: () => import(/* webpackChunkName: "product" */ '../views/ProductView.vue'),
+    // when props true, :id will be passed to ProductView.vue as a prop
     props: true
   }
 ]

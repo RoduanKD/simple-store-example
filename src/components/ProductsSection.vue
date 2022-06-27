@@ -2,12 +2,15 @@
   <section class="section">
     <div class="container">
       <div class="columns is-multiline">
+        <!-- fathi here should be product -->
           <div
-            v-for="product in products"
-            v-bind:key="product.id"
+            v-for="fathi in products"
+            v-bind:key="fathi.id"
             class="column is-12 is-4-desktop is-3-fullhd"
           >
-            <product-card :item="product" v-on:increase="handelIncrease(product, $event)" />
+            <router-link :to="`/products/${fathi.id}`">
+              <product-card :item="fathi" v-on:increase="handelIncrease(fathi, $event)" />
+            </router-link>
           </div>
         </div>
     </div>
@@ -30,7 +33,7 @@ export default {
   },
 
   created () {
-    axios.get('https://fakestoreapi.com/products/').then(res => {
+    axios.get('https://fakestoreapi.com/products?limit=5').then(res => {
       this.products = res.data
     })
   },
