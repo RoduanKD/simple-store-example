@@ -1,14 +1,40 @@
 <template>
   <section class="section">
     <div class="container">
-      <div class="columns column">
-        <form class="form">
-          <!-- title input -->
-          <!-- price input (type number) > 0 -->
-          <!-- description textarea -->
-          <!-- image input (accepts URL) -->
-          <!-- submit button with Add text -->
-        </form>
+      <div class="columns">
+        <div class="column">
+          <form class="form" @submit.prevent="addProduct">
+            <div class="field">
+              <label class="label">Product Title</label>
+              <div class="control">
+                <input class="input" v-model="newProduct.title" type="text" placeholder="Product Title">
+              </div>
+            </div>
+            <div class="field">
+              <label class="label">Price</label>
+              <div class="control">
+                <input class="input" v-model="newProduct.price" type="text" placeholder="Price">
+              </div>
+            </div>
+            <div class="field">
+              <label class="label">Product Image (URL)</label>
+              <div class="control">
+                <input class="input" v-model="newProduct.image" type="text" placeholder="Product Image (URL)">
+              </div>
+            </div>
+            <div class="field">
+            <label class="label">Description</label>
+            <div class="control">
+              <textarea class="textarea" v-model="newProduct.description" placeholder="Description"></textarea>
+            </div>
+          </div>
+          <div class="field">
+            <div class="control">
+              <button type="submit" class="button is-link">Submit</button>
+            </div>
+          </div>
+          </form>
+        </div>
       </div>
       <div class="columns is-multiline">
         <!-- fathi here should be product -->
@@ -37,7 +63,13 @@ export default {
 
   data () {
     return {
-      products: []
+      products: [],
+      newProduct: {
+        title: '',
+        image: '',
+        price: '',
+        description: ''
+      }
     }
   },
 
@@ -50,6 +82,12 @@ export default {
   methods: {
     handelIncrease (product, amount) {
       product.price += amount
+    },
+
+    addProduct () {
+      this.products.unshift({ ...this.newProduct })
+      // this.products.unshift(Object.assign(this.newProduct))
+      // this.products.unshift(JSON.parse(JSON.stringify(this.newProduct)))
     }
   }
 }
