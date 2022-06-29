@@ -39,7 +39,7 @@
       <div class="columns is-multiline">
         <!-- fathi here should be product -->
           <div
-            v-for="fathi in products"
+            v-for="fathi in $store.state.products"
             v-bind:key="fathi.id"
             class="column is-12 is-4-desktop is-3-fullhd"
           >
@@ -53,7 +53,7 @@
 </template>
 
 <script>
-import axios from 'axios'
+// import axios from 'axios'
 import ProductCard from './ProductCard.vue'
 
 export default {
@@ -63,7 +63,6 @@ export default {
 
   data () {
     return {
-      products: [],
       newProduct: {
         title: '',
         image: '',
@@ -74,9 +73,9 @@ export default {
   },
 
   created () {
-    axios.get('https://fakestoreapi.com/products').then(res => {
-      this.products = res.data
-    })
+    // axios.get('https://fakestoreapi.com/products').then(res => {
+    //   this.$store.state.products = res.data
+    // })
   },
 
   methods: {
@@ -85,7 +84,7 @@ export default {
     },
 
     addProduct () {
-      this.products.unshift({ ...this.newProduct })
+      this.$store.state.products.unshift({ ...this.newProduct })
       // this.products.unshift(Object.assign(this.newProduct))
       // this.products.unshift(JSON.parse(JSON.stringify(this.newProduct)))
     }
