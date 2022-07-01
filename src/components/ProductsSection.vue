@@ -85,6 +85,7 @@ export default {
 
     addProduct () {
       this.$store.state.products.unshift({ ...this.newProduct })
+      localStorage.setItem('products', JSON.stringify(this.$store.state.products))
       // this.products.unshift(Object.assign(this.newProduct))
       // this.products.unshift(JSON.parse(JSON.stringify(this.newProduct)))
     }
